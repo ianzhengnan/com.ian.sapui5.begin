@@ -40,6 +40,16 @@
 					"bundleName": "com.ian.sapui5.begin.i18n.i18n"
 				}
 			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"config": {
+			"invoiceLocal": "/model/Invoices.json"
 		}
 	}
 

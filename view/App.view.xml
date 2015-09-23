@@ -1,11 +1,23 @@
 <mvc:View
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="com.ian.sapui5.begin.controller.App">
+	controllerName="com.ian.sapui5.begin.controller.App"
+	displayBlock="true">
 
-	<Button text="{i18n>showHelloButtonText}" press="onShowHello"/>
-	<Input value="{/recipient/name}" 
-		   description="Hello {/recipient/name}"
-		   valueLiveUpdate="true"
-		   width="60%"/>
+	<App class="comIanSapui5Begin">
+		<pages>
+			<Page title="{i18n>homePageTitle}">
+				<headerContent>
+					<Button
+						icon="sap-icon://hello-world"
+						press="onOpenDialog"/>
+				</headerContent>
+				<content>
+					<mvc:XMLView viewName="com.ian.sapui5.begin.view.HelloPanel"/>
+					<mvc:XMLView viewName="com.ian.sapui5.begin.view.InvoiceList"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+	
 </mvc:View>

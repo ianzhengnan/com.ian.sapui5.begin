@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
-	"sap/ui/model/json/JSONModel"
-], function(UIComponent, JSONModel){
+	"sap/ui/model/json/JSONModel",
+	"com/ian/sapui5/begin/util/HelloDialog"
+], function(UIComponent, JSONModel, HelloDialog){
 	"use strict";
 
 	return UIComponent.extend("com.ian.sapui5.begin.Component", {
@@ -24,6 +25,14 @@ sap.ui.define([
 			var oModel = new JSONModel(oData);
 			this.setModel(oModel);
 
+			//set invoice model - local (2 methods to get the content of manifest.json)
+			var oConfig = this.getMetadata().getConfig();
+			var sNamespace = this.getMetadata().getManifestEntry("sap.app").id;
+			var oInvoiceModel = new JSONModel(jQuery.sap.getModulePath(sNamespace, oConfig.invoiceLocal));
+			this.setModel(oInvoiceModel, "invoice");
+
+			//set dialog
+			this.helloDialog = new HelloDialog();
 		}
 	});
 

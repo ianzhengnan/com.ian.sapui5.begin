@@ -18,12 +18,29 @@
 
 	<script type="text/javascript">
 		sap.ui.getCore().attachInit(function(){
-			// sap.ui.xmlview({
-			// 	viewName: "com.ian.sapui5.begin.view.App"
-			// }).placeAt("content");
-			new sap.ui.core.ComponentContainer({
-				name: "com.ian.sapui5.begin"
+			//**Iteration1
+			/*sap.ui.xmlview({
+				viewName: "com.ian.sapui5.begin.view.App"
+			}).placeAt("content");*/
+
+			//**Iteration2
+			/*new sap.ui.core.ComponentContainer({
+				name: "com.ian.sapui5.begin",
+				height: "100%"
+			}).placeAt("content");*/
+
+
+			new sap.m.Shell({
+				app: new sap.ui.core.ComponentContainer({
+					name: "com.ian.sapui5.begin",
+					height: "100%"
+				}),
+				properties: {
+					title: "Hello Shell"
+				}
+				
 			}).placeAt("content");
+
 		});
 	</script>
 

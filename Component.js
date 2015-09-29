@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/model/json/JSONModel",
-	"com/ian/sapui5/begin/util/HelloDialog"
-], function(UIComponent, JSONModel, HelloDialog){
+	"com/ian/sapui5/begin/util/HelloDialog",
+	"sap/ui/model/odata/v2/ODataModel"
+], function(UIComponent, JSONModel, HelloDialog, ODataModel){
 	"use strict";
 
 	return UIComponent.extend("com.ian.sapui5.begin.Component", {
@@ -27,8 +28,10 @@ sap.ui.define([
 
 			//set invoice model - local (2 methods to get the content of manifest.json)
 			var oConfig = this.getMetadata().getConfig();
-			var sNamespace = this.getMetadata().getManifestEntry("sap.app").id;
-			var oInvoiceModel = new JSONModel(jQuery.sap.getModulePath(sNamespace, oConfig.invoiceLocal));
+			// var sNamespace = this.getMetadata().getManifestEntry("sap.app").id;
+			// var oInvoiceModel = new JSONModel(jQuery.sap.getModulePath(sNamespace, oConfig.invoiceLocal));
+			var oInvoiceModel = new ODataModel(oConfig.invoiceRemote);
+			oInvoiceModel.setUseBatch(false);
 			this.setModel(oInvoiceModel, "invoice");
 
 			//set dialog

@@ -17,6 +17,19 @@
 	</script>
 
 	<script type="text/javascript">
+
+		var serviceUrl = getServiceUrl("http://services.odata.org/V2/Northwind/Northwind.svc");
+		function getServiceUrl(sServiceUrl){
+			if (window.location.hostname == "localhost") {
+				return "proxy" + sServiceUrl;
+			}else{
+				return sServiceUrl;
+			}
+		}
+
+	</script>
+
+	<script type="text/javascript">
 		sap.ui.getCore().attachInit(function(){
 			//**Iteration1
 			/*sap.ui.xmlview({

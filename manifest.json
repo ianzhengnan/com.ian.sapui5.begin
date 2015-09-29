@@ -49,7 +49,8 @@
 			]
 		},
 		"config": {
-			"invoiceLocal": "/model/Invoices.json"
+			"invoiceLocal": "/model/Invoices.json",
+			"invoiceRemote": "/proxy/http/services.odata.org/V2/Northwind/Northwind.svc"
 		}
 	}
 

@@ -26,13 +26,8 @@ sap.ui.define([
 			var oModel = new JSONModel(oData);
 			this.setModel(oModel);
 
-			//set invoice model - local (2 methods to get the content of manifest.json)
-			var oConfig = this.getMetadata().getConfig();
-			// var sNamespace = this.getMetadata().getManifestEntry("sap.app").id;
-			// var oInvoiceModel = new JSONModel(jQuery.sap.getModulePath(sNamespace, oConfig.invoiceLocal));
-			var oInvoiceModel = new ODataModel(oConfig.invoiceRemote);
-			oInvoiceModel.setUseBatch(false);
-			this.setModel(oInvoiceModel, "invoice");
+			//disable batch grouping for v2 API of the northwind service
+			this.getModel("invoice").setUseBatch(false);
 
 			//set dialog
 			this.helloDialog = new HelloDialog();

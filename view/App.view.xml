@@ -4,20 +4,6 @@
 	controllerName="com.ian.sapui5.begin.controller.App"
 	displayBlock="true">
 
-	<App class="comIanSapui5Begin">
-		<pages>
-			<Page title="{i18n>homePageTitle}">
-				<headerContent>
-					<Button
-						icon="sap-icon://hello-world"
-						press="onOpenDialog"/>
-				</headerContent>
-				<content>
-					<mvc:XMLView viewName="com.ian.sapui5.begin.view.HelloPanel"/>
-					<mvc:XMLView viewName="com.ian.sapui5.begin.view.InvoiceList"/>
-				</content>
-			</Page>
-		</pages>
-	</App>
+	<App class="comIanSapui5Begin" id="app" />
 	
 </mvc:View>

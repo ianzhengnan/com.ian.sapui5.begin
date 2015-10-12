@@ -1,0 +1,17 @@
+<mvc:View
+	controllerName="com.ian.sapui5.begin.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<Page title="{i18n>homePageTitle}">
+		<headerContent>
+			<Button 
+				icon="sap-icon://hello-world"
+				press="onOpenDialog" />
+		</headerContent>
+		<content>
+			<mvc:XMLView viewName="com.ian.sapui5.begin.view.HelloPanel" />
+			<mvc:XMLView viewName="com.ian.sapui5.begin.view.InvoiceList" />
+		</content>
+	</Page>
+</mvc:View>

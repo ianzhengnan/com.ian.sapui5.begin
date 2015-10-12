@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OPA tests for Walkthrough</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
+	<script 
+		id="sap-ui-bootstrap"
+		src="../../../resources/sap-ui-core.js"
+		data-sap-ui-resourceroots='{
+			"com.ian.sapui5.begin.test.integration": "./",
+			"com.ian.sapui5.begin.test": "../testService"
+		}'>
+	</script>
+	<script>
+		jQuery.sap.require("sap.ui.qunit.qunit-css");
+		jQuery.sap.require("sap.ui.thirdparty.qunit");
+		jQuery.sap.require("sap.ui.qunit.qunit-junit");
+		jQuery.sap.require("sap.ui.test.opaQunit");
+		jQuery.sap.require("sap.ui.test.Opa5");
+		// pages
+		jQuery.sap.require("com.ian.sapui5.begin.test.integration.pages.App");
+		// journey
+		jQuery.sap.require("com.ian.sapui5.begin.test.integration.navigationJourney");
+	</script>
+</head>
+<body>
+	<div id="content"></div>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+</body>
+</html>

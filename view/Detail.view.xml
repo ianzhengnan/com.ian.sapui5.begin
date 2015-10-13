@@ -1,10 +1,14 @@
 <mvc:View
+	controllerName="com.ian.sapui5.begin.controller.Detail"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 
 	<Page 
-		title="{i18n>detailPageTitle}">
+		title="{i18n>detailPageTitle}"
+		showNavButton="true"
+		navButtonPress="onNavBack">
 		<ObjectHeader
-			title="Invoice" />
+			intro="{invoice>ShipperName}"
+			title="{invoice>ProductName}" />
 	</Page>
 </mvc:View>

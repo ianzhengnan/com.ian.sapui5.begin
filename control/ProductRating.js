@@ -6,11 +6,13 @@ sap.ui.define([
 ], function(Control, RatingIndicator, Label, Button){
 	"use strict";
 
-	return Controller.extend("com.ian.sapui5.begin.control.ProductRating", {
+	return Control.extend("com.ian.sapui5.begin.control.ProductRating", {
 		metadata: {
 			properties: {
-				type: "float",
-				defaultValue: 0
+				value: {
+					type: "float",
+					defaultValue: 0
+				}
 			},
 			aggregations: {
 				_rating: {
@@ -51,7 +53,7 @@ sap.ui.define([
 			}).addStyleClass("sapUiTinyMargin"));
 			this.setAggregation("_button", new Button({
 				text: "{i18n>productRatingButton}",
-				press: this._onSubmit.bind(this);
+				press: this._onSubmit.bind(this)
 			}));
 		},
 
@@ -87,7 +89,7 @@ sap.ui.define([
 			oRM.write("<div");
 			oRM.writeControlData(oControl);
 			oRM.addClass("sapUiDemoWTProductRating");
-			oRM.writeClass();
+			oRM.writeClasses();
 			oRM.write(">");
 			oRM.renderControl(oControl.getAggregation("_rating"));
 			oRM.renderControl(oControl.getAggregation("_label"));

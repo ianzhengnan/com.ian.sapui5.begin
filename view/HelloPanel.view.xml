@@ -6,12 +6,14 @@
 <Panel 
 	headerText="{i18n>helloPanelTitle}"
 	class="sapUiResponsiveMargin"
-	width="auto">
+	width="auto"
+	expandable="{device>/system/phone}"
+	expended="{= !${device>/system/phone}}">
 	<content>
 		<Button text="{i18n>openDialogButtonText}"
 				icon="sap-icon://competitor"
 				press="onOpenDialog"
-				class="sapUiSmallMarginEnd"/>
+				class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"/>
 		<Button text="{i18n>showHelloButtonText}" 
 				press="onShowHello"
 				class="myCustomButton"/>

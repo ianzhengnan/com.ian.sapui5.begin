@@ -3,7 +3,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	controllerName="com.ian.sapui5.begin.controller.InvoiceList">
 
-	<List
+	<Table
 		id="invoiceList"
 		class="sapUiResponsiveMargin"
 		width="auto"
@@ -23,27 +23,59 @@
 			</Toolbar>
 		</headerToolbar>
 
+		<columns>
+			<Column 
+				hAlign="Right"
+				minScreenWidth="Small"
+				demandPopin="true"
+				width="4em">
+				<Text text="{i18n>columnQuantity}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>colunmName}" />
+			</Column>
+			<Column
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>columnStatus}" />
+			</Column>
+			<colunm
+				minScreenWidth="Tablet"
+				demandPopin="false">
+				<Text text="{i18n>columnSupplier}" />
+			</colunm>
+			<colunm
+				hAlign="Right">
+				<Text text="{i18n>colunmPrice}" />
+			</colunm>
+		</columns>
 		<items>
-			<ObjectListItem
-				title="{invoice>Quantity} * {invoice>ProductName}"
-				number="{
-					parts: [{path:'invoice>ExtendedPrice'},{path: 'view>/currency'}],
-					type: 'sap.ui.model.type.Currency',
-					formatOptions: {
-						showMeasure: false
-					}
-				}" 
-				numberUnit="{view>/currency}"
-				numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error': 'Success'}"
+
+			<ColumnListItem
 				type="Navigation"
 				press="onPress">
+				<cells>
+					<ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
+					<ObjectIdentifier title="{invoice>ProductName}" />
+					<Text text="{
+						path: 'invoice>Status',
+						formatter: '.formatter.statusText'
+					}" />
+					<Text text="{invoice>ShipperName}" />
+					<ObjectNumber
+						number="{
+							parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+							type: 'sap.ui.model.type.Currency',
+							formatOptions: {
+								showMeasure: false
+							}
+						}"
+						unit="{view>/currency}"
+						state="{=${invoice>ExtendedPrice} > 50 ? 'Error':'Success'}" />
 
-				<attributes>
-					<ObjectAttribute text="{path: 'invoice>Status', 
-											formatter: '.formatter.statusText'}" />
-				</attributes>
-			</ObjectListItem>
+				</cells>
+			</ColumnListItem>
 		</items>
-	</List>
+	</Table>
 
 </mvc:View>

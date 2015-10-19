@@ -8,6 +8,10 @@ sap.ui.define([
 
 	return Controller.extend("com.ian.sapui5.begin.controller.App", {
 
+		onInit: function(){
+			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
+		},
+
 		onOpenDialog: function(){
 
 			this.getOwnerComponent().helloDialog.open(this.getView());
